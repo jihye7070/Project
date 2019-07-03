@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="BoardMapper">
+	<cache />
+
+
+	<!-- 게시글 등록 -->
+	<insert id="boardInsert" parameterType="BoardDTO">
+		INSERT INTO
+		BOARD (b_num, b_subject, b_name, b_password, b_content, b_date)
+		VALUES (b_num.NEXTVAL, #{boardSubject}, #{boardName}, #{boardPass},
+		#{boardContent}, sysdate)
+	</insert>
+	<!-- 게시글 리스트 <select id="boardList" resultMap="list"> SELECT rownum, b_num, 
+		b_subject, b_name, b_content, b_date, row_number() OVER(ORDER BY b_date )as 
+		rn FROM BOARD ORDER BY rn desc </select> -->
+
+
+	<!-- 전체 게시글 개수 -->
+	<select id="listCnt" resultType="Integer">
+		SELECT
+			COUNT (b_num)
+				FROM
+				(SELECT row_number() OVER(ORDER BY b_date)as rn , b_num, b_subject, b_name, b_content, b_date
+				FROM BOARD
+					<trim prefix="WHERE" prefixOverrides="AND|OR">
+						<include refid="search"></include>
+					</trim>
+				ORDER BY rn DESC)
+	</select>
+
+	<!-- 검색, 리스트 -->
+	<select id="searchList" parameterType="HashMap" resultMap="list">
+		SELECT rnum, rrl.* FROM
+		(SELECT rownum as rnum, rl.* FROM
+		(SELECT row_number() OVER(ORDER BY b_date
+		)as rn , b_num, b_subject, b_name, b_content, b_date
+		FROM BOARD
+		<trim prefix="WHERE" prefixOverrides="AND|OR">
+			<include refid="search"></include>
+		</trim>
+		ORDER BY rn DESC) rl
+		WHERE
+		rownum &lt;= #{maxNum} ) rrl
+		WHERE
+		rnum &gt;= #{minNum}
+	</select>
+	<sql id="search">
+		<if test="keyword != null and keyword != '' ">
+			<if test="searchType=='title'">AND b_subject like '%'||#{keyword}||'%'</if>
+			<if test="searchType=='content'">AND b_content like '%'||#{keyword}||'%'</if>
+			<if test="searchType=='ticon'">AND b_subject like '%'||#{keyword}||'%'OR b_content like '%'||#{keyword}||'%'</if>
+			<if test="searchType=='name'">AND b_name like '%'||#{keyword}||'%'</if>
+		</if>
+	</sql>
+
+
+	<resultMap type="BoardDTO" id="list">
+		<result column="B_NUM" jdbcType="BIGINT" property="boardNum" />
+		<result column="B_SUBJECT" jdbcType="VARCHAR" property="boardSubject" />
+		<result column="B_NAME" jdbcType="VARCHAR" property="boardName" />
+		<result column="B_CONTENT" jdbcType="VARCHAR" property="boardContent" />
+		<result column="B_DATE" jdbcType="VARCHAR" property="boardDate" />
+		<result column="rn" jdbcType="BIGINT" property="rowNum" />
+
+	</resultMap>
+
+
+	<!-- 상세 게시글 -->
+	<select id="boardDetail" resultMap="list" parameterType="int">
+		SELECT
+		b_num, b_subject, b_name, b_content, b_date
+		FROM BOARD
+		WHERE b_num =
+		#{num}
+	</select>
+
+
+	<!-- 글 수정 -->
+	<update id="boardUpdate" parameterType="BoardDTO">
+		UPDATE BOARD SET
+		b_subject = #{boardSubject}, b_content =#{boardContent}, b_date =
+		sysdate
+		WHERE b_num = #{boardNum}
+	</update>
+
+	<!-- 글 삭제 -->
+	<delete id="boardDelete" parameterType="int">
+		DELETE FROM BOARD
+		WHERE
+		b_num = #{num}
+	</delete>
+
+
+
+
+
+
+
+
+
+
+</mapper>
