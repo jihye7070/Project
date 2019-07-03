@@ -1,0 +1,84 @@
+body {
+    font-family: "Jua", sans-serif;
+}
+
+.wrap_find {
+    width: 800px;
+    margin: 0 auto;
+}
+
+#logo {
+    width: 500px;
+    margin: 0 auto;
+}
+
+#find_box {
+    margin: 0 auto;
+    text-align: center;
+}
+
+#find_box input {
+    width: 600px;
+    height: 50px;
+    margin: 20px 0;
+    padding-left: 20px;
+    
+}
+#find_box h2{
+    font-family: "Jua", sans-serif;
+}
+a {
+    color: #000;
+    text-decoration: none;
+}
+
+a:hover {
+    color: lightsalmon;
+    font-weight: bold;
+}
+
+#btn {
+    margin: 0 auto;
+    text-align: center;
+}
+
+button, button::after {
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+button {
+    background-color: lightsalmon;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    -webkit-transition-duration: 0.4s;
+    /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: lightsalmon;
+    color: white;
+}
+
+#find_btn {
+    background-color: white;
+    color: black;
+    border: 2px solid lightsalmon;
+    font-weight: bold;
+}
+
+#find_btn:hover {
+    background-color: lightsalmon;
+    color: white;
+    font-weight: bold;
+}

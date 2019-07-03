@@ -16,7 +16,6 @@
 	display: inline-block;
     position: relative;
     text-align: center;
-    font-weight: bold;
     font-size: 18px;
 	padding: 10px 0 10px;
 	border-top : 1px;
@@ -41,6 +40,9 @@ input{
 	width: 50px;
     font-weight: bold;
 }
+#name_detail{
+	width: 50px;
+}
 #boardName{
 	width: 200px;
 }
@@ -50,7 +52,6 @@ input{
 }
 #content_detail{
 	width: 800px;
-	padding-left: 30px;
 	padding-top:30px;
 	margin: 0 auto;
 }
@@ -68,4 +69,15 @@ input{
 	margin: 10px;
 	width:100px;
 	height: 38px;
+}
+ span {
+    position: absolute;
+       bottom: -15px;
+    right: 5px;
+}
+#counter {
+  background:rgba(255,0,0,0.5);
+  border-radius: 0.5em;
+  padding: 0 .5em 0 .5em;
+  font-size: 0.75em;
 }

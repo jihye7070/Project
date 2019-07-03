@@ -1,0 +1,36 @@
+body {
+    font-family: "Jua", sans-serif;
+}
+
+
+a{
+    color:#000;
+    text-decoration: none;
+}
+a:hover{
+    color: coral;
+    font-weight: bold;
+}
+
+.wrap_contents {
+    width: 1600px;
+    margin:  200px auto;
+    text-align: center;
+}
+.wrap_contents div{
+    margin: 0 20px;
+    font-size: 30px;
+}
+
+.movie {
+
+    display: inline-block;
+}
+.restaurant{
+
+    display: inline-block;
+}
+.accommodation{
+
+    display: inline-block;
+}

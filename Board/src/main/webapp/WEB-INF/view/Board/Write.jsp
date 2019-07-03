@@ -81,7 +81,7 @@
 	        		alert("이름은"+20 + "자를 초과 입력 할 수 없습니다.");
 	        	}
 	        	if(maxByte==40){
-	        		alert("비밀번호는 "+20 + "자를 초과 입력 할 수 없습니다.");
+	        		alert("비밀번호는 "+16 + "자를 초과 입력 할 수 없습니다.");
 	        	}
 	        	if(maxByte==4000){
 	        		alert("내용은 "+1300 + "자를 초과 입력 할 수 없습니다.");
@@ -91,8 +91,29 @@
 	            chkword(obj, 4000);
 	        }
 	    }
+	    
+	    $(document).ready(function () {
+	    	
+	        $("#boardPass").on('keyup', function () {
+	            var pass = $("#boardPass").val();
+	            if (pass.length < 8 || pass.length > 16) {
+	                $("#pw_error").show();
+	            } else {
+	                $("#pw_error").hide();
+	            }
+	        });
 
-
+	        //패스워드 영문숫자특수문자조합
+	        $("#boardPass").on('blur', function () {
+	            var passwd = $("#boardPass").val();
+	            var pattern = /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{6,16}$/;
+	            if (!pattern.test(passwd)) {
+	                $("#pw_error2").show();
+	            } else {
+	                $("#pw_error2").hide();
+	            }
+	        });
+	    }
      
 </script>
 </head>
@@ -111,7 +132,10 @@
 					class="byteLimit" onkeyup="keyup(this,60)" /></li>
 				<li id="pass">비밀번호</li>
 				<li id="pass_detail"><input type="password" name="boardPass" id="boardPass" 
-					class="byteLimit" onkeyup="keyup(this,40)" /></li>
+					class="byteLimit" onkeyup="keyup(this,40)" />
+					<!-- <div class="error" id="pw_error">8~16글자만 입력하세요</div>
+					<div class="error" id="pw_error2">영문,숫자,특수문자를 조합하세요</div>	 -->
+				</li>
 			</ul>
 			</div>
 			<div class="content_wrap">

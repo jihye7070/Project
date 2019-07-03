@@ -1,0 +1,44 @@
+body{
+    font-family: "Jua", sans-serif;
+}
+
+.wrap_product{
+    width: 1000px;
+    text-align: center;
+    margin: 200px auto;
+
+}
+
+#p{
+    font-size: 30px;
+}
+
+.option{
+    width: 290px;
+    height: 50px;
+    display: inline-block;
+    text-align: center;
+    font-size: 23px;
+    background-color: rgba(255, 160, 122, 0.719);
+    padding-top: 25px;
+    margin: 0 2px 0 2px;
+    border-radius: 5px;
+}
+
+#table{
+    width: 800px;
+    text-align: center;
+    margin: 50px auto;
+}
+
+#table td{
+    width: 200px;
+}
+#sub{
+    font-size: 21px;
+    padding-bottom: 20px;
+}
+
+#con{
+    font-size: 15px;
+}

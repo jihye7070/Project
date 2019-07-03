@@ -1,0 +1,90 @@
+
+		a{
+		text-decoration: none;
+		}
+		#contents {
+			    width: 1080px;
+			    margin: 0 auto;
+			    padding: 200px 0px;
+		}
+		#festival_main_view{
+			float: left;
+			width: 1080px;
+			
+		}
+		#festival_main_view > img{
+			width: 100%;
+			height: 400px;
+		}
+		#festival_title{
+			float: left;
+			font-size: 20px;
+			font-weight: 700;
+		}
+		#festival_title >h3{
+			margin: 10px 30px;
+		}
+		#area_info{
+			float: left;
+			width: 1080px;
+		    border-bottom: 3px solid orange;
+			margin: 0px 0px 10px 0px;
+
+		}
+		#area_info > ul> li{
+			list-style: none;
+			display:inline;   
+			border-left:1px solid #999;           
+            font:bold 12px Dotum;                   
+            padding:0 10px;   
+			float: right;   
+			margin: 10px 0px;      
+		}
+		.festival_infobox{
+			float: left;
+			width: 1080px;
+			border-bottom: 1px solid gray;
+		}
+		#festival_infoview{
+			float: left;
+			width: 250px;
+			height: 200px;
+		}
+		#festival_infoview > img{
+			width: 200px;
+			height: 180px;
+			position: relative;
+			left: 50%;
+			top:5%;
+			transform: translateX(-50%);
+		}
+		#festival_info{
+			float: left;
+			width: 830px;
+			
+		}
+		#info{
+			margin: 25px 0px;
+		}
+		
+		#paging_box{
+			float: left;
+			width: 1080px;
+			margin: 20px 0px;
+		}
+		#paging_box a{
+			display: inline-block;
+			vertical-align: middle;
+			width: 26px;
+			height: 24px;
+			border: 1px solid #dadada;
+			background: #f7f7f7;
+			color: #555;
+			text-align: center;
+			line-height: 21px;
+			text-decoration:none;
+			position: relative;
+			left: 40%;
+			transform: translateX(-40%);
+			margin: 20px 0px;
+		}

@@ -79,7 +79,7 @@ public class BoardController {
 	@RequestMapping(value="/BoardUpdate", method=RequestMethod.POST)
 	public String update(BoardUpdateCommand upCommand, Model model) {
 		boardService.boardUpdate(upCommand, model);		
-		return "redirect:/BoardList";	
+		return "redirect:/BoardDetail?num="+upCommand.getBoardNum();	
 	}
 	
 	

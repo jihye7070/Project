@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="DateProducts">
+	<cache />
+
+
+<!--객실이 등록될때 부모테이블인 데이트상품넘버 값을 가져오기위해  -->
+	<select id="DateProductNums" resultType="long">
+		select
+		nvl(max(PRODUCT_NUM),0) +1 from
+		DATEPRODUCT
+	</select>
+     <!-- ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ -->
+     
+     <!--객실이 등록될때 부모테이블 데이트상품넘버에 값을 넣기위해  -->
+	<insert id="DateProduct" parameterType="HashMap">
+		insert into
+		DATEPRODUCT(PRODUCT_NUM, CATEGORY_NUM)
+		values(#{num},#{nums})
+	</insert>
+	
+	</mapper>

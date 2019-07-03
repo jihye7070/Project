@@ -14,13 +14,13 @@
 #list li{
 	display: inline-block;
     position: relative;
-    text-align: center;
     font-size: 15px;
 	padding: 10px 0 10px;
 }
 #title{
-	width: 70px;
+	width: 40px;
     font-weight: bold;
+    margin-left: 20px;
 }
 #title_detail{
 	width: 400px;
@@ -38,16 +38,15 @@
     font-weight: bold;
 }
 #name_detail{
-	width: 200px;
+	width: 150px;
 }
 .content_wrap{
-	width:800px;
+	width:900px;
 	min-height: 200px;
     padding: 30px 20px;
 }
 #content_detail{
-	width: 800px;
-	padding:30px;
+	width: 870px;
 	word-break:break-all;
 	overflow: hidden;
 }

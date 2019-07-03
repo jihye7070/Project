@@ -81,8 +81,7 @@
 	<!-- 글 수정 -->
 	<update id="boardUpdate" parameterType="BoardDTO">
 		UPDATE BOARD SET
-		b_subject = #{boardSubject}, b_content =#{boardContent}, b_date =
-		sysdate
+		b_subject = #{boardSubject}, b_content =#{boardContent}
 		WHERE b_num = #{boardNum}
 	</update>
 

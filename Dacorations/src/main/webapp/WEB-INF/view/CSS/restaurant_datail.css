@@ -1,0 +1,158 @@
+body {
+    font-family: "Jua", sans-serif;
+}
+
+a {
+    color: #000;
+    text-decoration: none;
+}
+
+a:hover {
+    color: lightsalmon;
+    font-weight: bold;
+}
+
+.wrap_contents {
+    width: 800px;
+    margin: 200px auto;
+    border: 1px solid gray;
+    padding: 40px 50px 20px 50px;
+}
+#sub {
+    font-size: 40px;
+    text-align: center; 
+    margin-bottom: 20px;
+}
+.food_img {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.res {
+    margin: 50px 0;
+}
+
+.res_info {
+    width: 800px;
+}
+
+.info {
+    list-style: none;
+    padding: 0;
+}
+
+#name {
+    font-size: 50px;
+    margin: 10px 0;
+}
+
+#kind {
+    font-size: 20px;
+    color: gray;
+    margin: 10px 0;
+}
+
+#loc {
+    font-size: 20px;
+    color: gray;
+    margin: 10px 0;
+}
+
+#tel {
+    font-size: 25px;
+    margin: 10px 0;
+}
+
+.info_detail {
+    margin-top: 40px;
+    list-style: none;
+    padding: 0;
+}
+
+#de_info_sub {
+    font-size: 30px;
+    padding-top: 30px;
+}
+
+#de_info {
+    font-size: 21px;
+    color: gray;
+    margin-top: 40px;
+}
+
+#de_addr {
+    font-size: 18px;
+    color: black;
+    margin-top: 40px;
+}
+
+.res_food_list {
+    width: 800px;
+    margin: 0 auto;
+}
+
+#h2 {
+    font-size: 30px;
+    border-top: solid gray 1px;
+    padding-top: 40px;
+}
+
+.re_menu {
+    width: 800px;
+    list-style: none;
+    text-align: center;
+    padding: 0;
+    position: relative;
+}
+.re_menu_li{
+    width: 190px;
+    display: inline-block;
+}
+#chk {
+    margin: 10px 0;
+    font-size: 20px;
+}
+
+p {
+    margin: 0;
+}
+
+span {
+    margin-right: 20px;
+}
+
+.date {}
+
+.res_table {
+    width: 800px;
+    height: 20px;
+}
+
+.table_box {
+    width: 800px;
+	margin-top: 40px;
+    font-size: 25px;
+    text-align: center;
+}
+
+#t_box {
+}
+
+#label {
+    font-size: 18px;
+}
+
+
+
+
+
+
+#btn {
+    background-color: white; 
+    color: black; 
+    font-weight: bold;
+    width: 100px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  

@@ -1,0 +1,67 @@
+html, body {
+    margin: 0 auto;
+    padding: 0;
+    text-align: center;
+    font-family: "Jua", sans-serif;
+    background-color: rgba(252, 252, 252, 0.829);
+}
+
+.wrap_mem_list {
+    width: 1300px;
+    margin: 200px auto;
+    border: 1px solid rgb(204, 198, 198);
+    padding: 20px 50px 50px 50px;
+    display: inline-block;
+    text-align: center;
+    background-color: white;
+}
+
+#sub {
+    font-size: 30px;
+}
+.table{
+    text-align: center;    margin: 20px auto;
+}
+#ta_sub{
+    font-size: 25px;
+
+}
+.table tr {
+    /* border:1px solid black;  */
+    padding: 10px 0px 7px 0px;
+    font-size: 18px;
+    text-align: center;
+}
+.table td{
+  
+}
+#name {
+    width: 130px;
+}
+
+#id {
+    width: 150px;
+}
+
+#email {
+    width: 190px;
+}
+
+#gender {
+    width: 100px;
+}
+
+#phone {
+    width: 180px;
+}
+
+#addr {
+    width: 150px;
+}
+
+#agree {
+    width: 90px;
+}
+#date, #last_date{
+	 width: 180px;
+}

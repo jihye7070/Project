@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+">
+<!-- 전지혜 -->
+
+
+<bean id="LoginService" class="Service.LoginService" />
+<bean id="MemberListService" class="Service.MemberListService" />
+<bean id="MemberInfoService" class="Service.MemberInfoService" />
+<bean id="RestaurantService" class="Service.RestaurantService" />
+<bean id="MainService" class="Service.MainService" />
+<bean id="OptionService" class="Service.OptionService" />
+<bean id="OrderService" class="Service.OrderService" />
+
+
+
+
+<bean id="LoginRepository" class="Repository.LoginRepository" />
+<bean id="MemberListRepository" class="Repository.MemberListRepository" />
+<bean id="MemberInfoRepository" class="Repository.MemberInfoRepository" />
+<bean id="RestaurantRepository" class="Repository.RestaurantRepository" />
+<bean id="MainRepository" class="Repository.MainRepository" />
+<bean id="OptionRepository" class="Repository.OptionRepository" />
+<bean id="OrderRepository" class="Repository.OrderRepository" />
+
+</beans>

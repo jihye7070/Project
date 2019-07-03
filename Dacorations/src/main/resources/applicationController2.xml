@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans
+	   		http://www.springframework.org/schema/beans/spring-beans.xsd"
+	   		>
+<!-- 전지혜 -->  		
+
+
+
+<bean class="Controller.LoginController.LoginController" />
+<bean class="Controller.MainController.MainController" />
+<bean class="Controller.MemberController.MemberListController" />
+<bean class="Controller.MemberController.MemberInfoController" />
+<bean class="Controller.RestaurantController.RestaurantRegisterController" />
+<bean class="Controller.OptionController.OptionRegisterController" />
+<bean class="Controller.OptionController.OptionListController" />
+<bean class="Controller.ProductController.ProductController" />
+<bean class="Controller.OrderController.OrderController" />
+
+
+</beans>

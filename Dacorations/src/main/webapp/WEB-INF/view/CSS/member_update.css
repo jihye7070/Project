@@ -1,0 +1,132 @@
+body {
+    font-family: "Jua", sans-serif;
+}
+
+a {
+    color: #000;
+    text-decoration: none;
+}
+
+a:hover {
+    color: coral;
+    font-weight: bold;
+}
+
+.wrap_mypage {
+    width: 1000px;
+    margin: 200px auto;
+}
+
+.page_menu {
+    text-align: center;
+}
+
+.page_menu ul {
+    padding: 0;
+    margin: 50px 0;
+}
+
+.page_menu ul li {
+    display: inline-block;
+    font-size: 30px;
+    margin: 20px;
+}
+
+.member_info {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.member_info table {
+    width: 90%;
+    margin: 50px auto;
+    font-size: 20px;
+    text-align: center;
+}
+
+.member_info tr {
+    height: 50px;
+    border-bottom: solid 1px gray;
+    margin-top: 10px;
+}
+
+#sub {
+    width: 100px;
+}
+
+#con {
+    width: 350px;
+}
+#btn {
+    margin: 40px auto;
+    text-align: center;
+}
+
+button, button::after {
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.textbox {
+	width: 300px;
+	height: 40px;
+	border-radius: 10px;
+    border: 1px solid rgb(204, 198, 198);
+
+}
+.checkbox {
+	width: 20px;
+	height: 20px;
+    margin-left: 50px;
+}
+#sample6_postcode{
+    
+	width: 200px;
+	height: 40px;
+	border-radius: 10px;
+	border: 1px solid rgb(204, 198, 198);
+    margin-top: 20px; 
+}
+
+.phone_text {
+	width: 88px;
+	height: 50px;
+	border-radius: 10px;
+	border: 1px solid rgb(204, 198, 198);
+    margin-top: 20px; 
+}
+button {
+    background-color: lightsalmon;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    -webkit-transition-duration: 0.4s;
+    /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: lightsalmon;
+    color: white;
+}
+
+#update_btn {
+    background-color: white;
+    color: black;
+    border: 2px solid lightsalmon;
+    font-weight: bold;
+}
+
+#update_btn:hover {
+    background-color: lightsalmon;
+    color: white;
+    font-weight: bold;
+}

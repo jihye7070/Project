@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="RestaurantMapper">
+	<cache />
+
+	<sql id="basecolumn">
+		RESTAURANT_NUM, 
+		RESTAURANT_NAME, 
+		RESTAURANT_KIND,
+		RESTAURANT_ADD, 
+		RESTAURANT_AREA,
+		RESTAURANT_IMAGE,
+		RESTAURANT_IMGSTORE, 
+		RESTAURANT_TELL, 
+		RESTAURANT_INFO,
+		TABLE_COUNT
+	</sql>
+	<!-- 레스토랑등록 -->
+	<insert id="insertRestaurant" parameterType="RestaurantDTO">
+		INSERT INTO
+			restaurant (RESTAURANT_NUM, RESTAURANT_NAME, RESTAURANT_KIND,
+				RESTAURANT_ADD, RESTAURANT_AREA, RESTAURANT_IMAGE,RESTAURANT_IMGSTORE,
+				RESTAURANT_TELL, RESTAURANT_INFO ,TABLE_COUNT)
+			values((select nvl(max(RESTAURANT_NUM),0) +1 from restaurant),
+					#{restaurantName},#{restaurantKind},#{restaurantAdd},#{restaurantArea},
+					#{restaurantImage},#{restaurantImgStore},#{restaurantTell},#{restaurantInfo},#{tableCount})
+	</insert>
+
+
+	<!-- 레스토랑리스트 -->
+
+	<select id="listRestaurant" resultMap="listRestaurant">
+		SELECT 
+			RESTAURANT_NUM, RESTAURANT_NAME, RESTAURANT_KIND, RESTAURANT_ADD, RESTAURANT_AREA,
+			RESTAURANT_IMAGE,RESTAURANT_IMGSTORE, RESTAURANT_TELL, RESTAURANT_INFO ,TABLE_COUNT
+		FROM RESTAURANT
+	</select>
+
+	<resultMap type="RestaurantDTO" id="listRestaurant">
+		<id column="RESTAURANT_NUM" jdbcType="BIGINT"
+			property="restaurantNum" />
+		<result column="RESTAURANT_NAME" jdbcType="VARCHAR"
+			property="restaurantName" />
+		<result column="RESTAURANT_KIND" jdbcType="VARCHAR"
+			property="restaurantKind" />
+		<result column="RESTAURANT_ADD" jdbcType="VARCHAR"
+			property="restaurantAdd" />
+		<result column="RESTAURANT_AREA" jdbcType="VARCHAR"
+			property="restaurantArea" />
+		<result column="RESTAURANT_IMGSTORE" jdbcType="VARCHAR"
+			property="restaurantImgStore" />
+		<result column="RESTAURANT_IMAGE" jdbcType="VARCHAR"
+			property="restaurantImage" />
+		<result column="RESTAURANT_TELL" jdbcType="VARCHAR"
+			property="restaurantTell" />
+		<result column="RESTAURANT_INFO" jdbcType="VARCHAR"
+			property="restaurantInfo" />
+		<result column="TABLE_COUNT" jdbcType="BIGINT"
+			property="tableCount" />
+	</resultMap>
+
+
+	<!-- 레스토랑디테일 -->
+	<select id="detailRestaurant" parameterType="long"
+		resultMap="detailRestaurant">
+		SELECT 
+			RESTAURANT_NUM, RESTAURANT_NAME, RESTAURANT_KIND,
+			RESTAURANT_ADD, RESTAURANT_AREA, RESTAURANT_IMAGE,RESTAURANT_IMGSTORE,
+			RESTAURANT_TELL, RESTAURANT_INFO ,TABLE_COUNT
+		FROM RESTAURANT
+		WHERE RESTAURANT_NUM =#{num}
+
+	</select>
+
+	<resultMap type="RestaurantDTO" id="detailRestaurant">
+		<id column="RESTAURANT_NUM" jdbcType="BIGINT" property="restaurantNum" />
+		<result column="RESTAURANT_NAME" jdbcType="VARCHAR" property="restaurantName" />
+		<result column="RESTAURANT_KIND" jdbcType="VARCHAR" property="restaurantKind" />
+		<result column="RESTAURANT_ADD" jdbcType="VARCHAR" property="restaurantAdd" />
+		<result column="RESTAURANT_AREA" jdbcType="VARCHAR" property="restaurantArea" />
+		<result column="RESTAURANT_IMGSTORE" jdbcType="VARCHAR" property="restaurantImgStore" />
+		<result column="RESTAURANT_IMAGE" jdbcType="VARCHAR" property="restaurantImage" />
+		<result column="RESTAURANT_TELL" jdbcType="VARCHAR" property="restaurantTell" />
+		<result column="RESTAURANT_INFO" jdbcType="VARCHAR" property="restaurantInfo" />
+		<result column="TABLE_COUNT" jdbcType="BIGINT" property="tableCount" />
+	</resultMap>
+
+	<!-- 종류별로 리스트 -->
+
+	<select id="listKindRestaurant" parameterType="string"
+		resultMap="listRestaurant">
+		SELECT 
+			RESTAURANT_NUM, RESTAURANT_NAME, RESTAURANT_KIND, RESTAURANT_ADD, RESTAURANT_AREA,
+			RESTAURANT_IMAGE,RESTAURANT_IMGSTORE, RESTAURANT_TELL, RESTAURANT_INFO ,TABLE_COUNT
+		FROM RESTAURANT
+		WHERE RESTAURANT_KIND = #{kind}
+	</select>
+
+	<!-- 지역별로 -->
+
+	<select id="restaurantArea" parameterType="HashMap"
+		resultMap="listRestaurant">
+		SELECT RESTAURANT_NUM, RESTAURANT_NAME, RESTAURANT_KIND,
+		RESTAURANT_ADD, RESTAURANT_AREA,
+		RESTAURANT_IMAGE,RESTAURANT_IMGSTORE,
+		RESTAURANT_TELL, RESTAURANT_INFO ,TABLE_COUNT
+		FROM RESTAURANT
+		WHERE
+		RESTAURANT_KIND = #{kind} and RESTAURANT_AREA = #{area}
+	</select>
+
+
+	<!-- 등록순 -->
+	<select id="newRestaurant" parameterType="string"
+		resultMap="listRestaurant">
+		SELECT RESTAURANT_NUM, RESTAURANT_NAME, RESTAURANT_KIND,
+		RESTAURANT_ADD,
+		RESTAURANT_AREA,
+		RESTAURANT_IMAGE,RESTAURANT_IMGSTORE,
+		RESTAURANT_TELL, RESTAURANT_INFO ,TABLE_COUNT
+		FROM RESTAURANT
+		WHERE
+		RESTAURANT_KIND = #{kind}
+		ORDER BY RESTAURANT_NUM DESC
+	</select>
+
+	<!--음식이 등록될때 부모테이블인 데이트상품넘버 값을 가져오기위해 -->
+	<select id="DateProductNum" resultType="long">
+		select
+		nvl(max(PRODUCT_NUM),0) +1 from
+		DATEPRODUCT
+	</select>
+
+
+	<!--음식이 등록될때 부모테이블 데이트상품넘버에 값을 넣기위해 -->
+	<insert id="DateProduct" parameterType="FoodDTO">
+		insert into
+		DATEPRODUCT(PRODUCT_NUM, CATEGORY_NUM)
+		values(#{foodNum},4)
+	</insert>
+
+
+	<!-- 음식상품을을 등록하기위해 -->
+	<insert id="foodInsert" parameterType="FoodDTO">
+		INSERT INTO
+		datefood(RESTAURANT_NUM, FOOD_NUM, PRODUCT_NUM, CATEGORY_NUM,
+		FOOD_PRICE, FOOD_IMAGE, FOOD_INFORM, FOOD_NAME, FOOD_TYPE,
+		FOOD_IMGSTORE)
+		VALUES (#{restaurantNum}, (select nvl(max(FOOD_NUM),0) +1 from datefood),
+		#{foodNum},4, #{foodPrice}, #{foodImage}, #{foodInfo},#{foodName},
+		#{foodType},#{foodImgStore})
+	</insert>
+
+
+
+	<!-- 페이징 -->
+	<select id="paging" resultMap="detailRestaurant" parameterType="HashMap">
+		SELECT
+		rnum,
+		<include refid="basecolumn" />
+		FROM
+		(SELECT
+		rownum as rnum,
+		<include refid="basecolumn" />
+		FROM
+		(SELECT
+		<include refid="basecolumn" />
+		FROM
+		RESTAURANT
+		ORDER BY
+		RESTAURANT_NUM asc
+		) WHERE
+		rownum &lt;= #{maxNum}
+		)
+		WHERE
+		rnum &gt;= #{minNum}
+	</select>
+	<select id="listcount" resultType="Integer">
+		SELECT
+		count(*)
+		FROM
+		RESTAURANT
+	</select>
+	
+	<!-- 등록된 음식(세트)들을 리스트로 출력 -->
+	<select id="foodList" parameterType="long" resultMap="FoodList">
+		SELECT 	FOOD_NUM,  PRODUCT_NUM, CATEGORY_NUM,
+				FOOD_PRICE, FOOD_IMAGE, FOOD_INFORM, FOOD_NAME,
+				FOOD_TYPE, FOOD_IMGSTORE
+		FROM 	DATEFOOD
+		WHERE	RESTAURANT_NUM = #{num}
+	</select>
+	
+	<resultMap type="FoodDTO" id="FoodList">
+		<id column="FOOD_NUM" jdbcType="BIGINT" property="foodNum" />
+		<result column="PRODUCT_NUM" jdbcType="BIGINT" property="PRODUCTNUM"/>
+		<result column="CATEGORY_NUM" jdbcType="BIGINT" property="CATEGORYNUM"/>
+		<result column="FOOD_PRICE" jdbcType="BIGINT" property="foodPrice" />
+		<result column="FOOD_IMAGE" jdbcType="VARCHAR" property="foodImage"/>
+		<result column="FOOD_INFORM" jdbcType="VARCHAR" property="foodInfo"/>
+		<result column="FOOD_NAME" jdbcType="VARCHAR" property="foodName" />
+		<result column="FOOD_TYPE" jdbcType="VARCHAR" property="foodType"/>
+		<result column="FOOD_IMGSTORE" jdbcType="VARCHAR" property="foodImgStore"/>
+	</resultMap>
+
+
+	<select id="foodDetail" parameterType="long" resultMap="FoodList">
+		SELECT 	
+				d.FOOD_PRICE, 
+				d.FOOD_IMAGE, 
+				d.FOOD_INFORM, 
+				d.FOOD_NAME,
+				d.FOOD_TYPE, 
+				d.FOOD_IMGSTORE,
+				c.CATEGORY_NAME
+		FROM 	DATEFOOD d LEFT OUTER JOIN category c ON(d.CATEGORY_NUM = c.CATEGORY_NUM)
+		WHERE FOOD_NUM =#{num}
+
+	</select>
+	<!-- foodOrder -->
+	<select id="foodOrder" parameterType="string" resultMap="FoodList">
+		SELECT 
+			FOOD_NUM, FOOD_PRICE, FOOD_IMAGE, FOOD_INFORM, FOOD_NAME, FOOD_TYPE, FOOD_IMGSTORE, CATEGORY_NUM
+		FROM 	DATEFOOD
+		WHERE FOOD_NUM =#{foodName}
+	</select>
+
+</mapper>
+
+

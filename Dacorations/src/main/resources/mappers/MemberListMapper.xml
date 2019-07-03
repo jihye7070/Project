@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="MemberListMapper">
+	<cache />
+
+	<select id="memberList" resultMap="memberList">
+		SELECT member_name, member_id, member_mail, member_gender, member_tell, member_area, mail_confrim , member_date, member_last_date
+		FROM member 
+		ORDER BY member_date
+	</select>
+	<resultMap type="MemberDTO" id="memberList">
+	<id column="MEMBER_ID" jdbcType="BIGINT" property="memberId"/>
+		<result column="MEMBER_NAME" jdbcType="VARCHAR" property="memberName"/>
+		<result column="MEMBER_MAIL" jdbcType="VARCHAR" property="memberMail"/>
+		<result column="MEMBER_GENDER" jdbcType="VARCHAR" property="memberGender"/>
+		<result column="MEMBER_TELL" jdbcType="VARCHAR" property="memberTell"/>
+		<result column="MEMBER_AREA" jdbcType="VARCHAR" property="memberArea"/>
+		<result column="MAIL_CONFRIM" jdbcType="VARCHAR" property="mailConfrim"/>
+		<result column="MEMBER_DATE" jdbcType="VARCHAR" property="memberDate"/>
+		<result column="MEMBER_LAST_DATE" jdbcType="VARCHAR" property="memberLastDate"/>
+	</resultMap>
+
+
+</mapper>

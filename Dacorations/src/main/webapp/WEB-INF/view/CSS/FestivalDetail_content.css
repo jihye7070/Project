@@ -1,0 +1,82 @@
+#contents {
+			    width: 1080px;
+			    margin: 0 auto;
+			    padding: 200px 0px;
+		}
+
+		#festival_title {
+			float: left;
+			width: 1080px;
+			color: #0a6da6;
+			font-weight: bold;
+			font-size: 20px;
+
+			border-top: 2px solid orange;
+			padding: 10px 0px;
+		}
+
+		#festival_img_box {
+			float: left;
+			width: 1080px;
+			height: 500px;
+			border-top: 1px solid darkgray;
+
+		}
+
+		#festival_img_box>img {
+			width: 800px;
+			height: 400px;
+			position: relative;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+		}
+
+		#festival_info {
+			float: left;
+			width: 1080px;
+			border-top: 1px solid gainsboro;
+			margin: 0px 40px;
+			
+		}
+		tr{
+			height: 30px;
+		}
+		.subject{
+			list-style: none;
+			display: inline-block;
+			background-color: #f7f5f4;
+			width: 100px;
+			font-weight: bold;
+			text-align: center;
+		}
+		.info{
+			list-style: none;
+			display: inline-block;
+			width: 970px;
+			border-bottom: 1px solid #f7f5f4;
+			font-size: 14px;
+		
+		}
+
+		#festival_contents {
+			float: left;
+			width: 950px;
+			margin: 40px 40px 0px 40px;
+		}
+
+		#festival_list {
+			float: left;
+			width: 1080px;
+			margin: 20px 0px;
+			border-top: 1px solid #e07e28;
+		}
+
+		#festival_list button {
+			background: #fff;
+			color: #124088;
+			border-color: #afafaf;
+			border-radius: 2px;
+			float: right;
+			margin: 20px 5px;
+		}

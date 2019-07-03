@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC 
+	"-//mybatis.org//DTD Config 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+	<typeAliases>
+		<typeAlias type="Model.MemberDTO" alias="MemberDTO"/>
+		<typeAlias type="Model.FestivalDTO" alias="FestivalDTO"/>
+		<typeAlias type="Model.AccomodationDTO" alias="AccomodationDTO"/>
+		<typeAlias type="Model.AccomodationRegisterDTO" alias="AccomodationRegisterDTO"/>
+		<typeAlias type="Model.ChargerDTO" alias="ChargerDTO"/>
+		<typeAlias type="Model.CustomerserviceDTO" alias="CustomerserviceDTO"/>
+		<typeAlias type="Model.RestaurantDTO" alias="RestaurantDTO"/>
+		<typeAlias type="Model.FoodDTO" alias="FoodDTO"/>
+		<typeAlias type="Model.TheaterRegisterDTO" alias="TheaterRegisterDTO"/>
+		<typeAlias type="Model.AnswerDTO" alias="AnswerDTO"/>
+		<typeAlias type="Model.MovieRegisterDTO" alias="MovieRegisterDTO"/>
+		<typeAlias type="Model.ScreenDTO" alias="ScreenDTO"/>
+		<typeAlias type="Model.DateProductMovieDTO" alias="DateProductMovieDTO"/>
+        <typeAlias type="Model.DateMovieDTO" alias="DateMovieDTO"/>
+		<typeAlias type="Model.OptionDTO" alias="OptionDTO"/>
+		<typeAlias type="Model.OrderDTO" alias="OrderDTO"/>
+		<typeAlias type="Model.PaymentDTO" alias="PaymentDTO"/>
+		<typeAlias type="Model.OrderDetailDTO" alias="OrderDetailDTO"/>
+
+	</typeAliases>
+
+</configuration>

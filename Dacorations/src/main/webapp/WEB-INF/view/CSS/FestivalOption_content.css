@@ -1,0 +1,47 @@
+body {
+    font-family: "Jua", sans-serif;
+}
+a {
+    color: #000;
+    text-decoration: none;
+}
+
+a:hover {
+    color: coral;
+    font-weight: bold;
+}
+
+.wrap_contents{
+    width: 1000px;
+}
+
+.sub{
+    width:110px;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 0px 0px 0px 50px;
+}
+#con{
+    width:110px;
+}
+.order_info{
+    margin: 170px 50px;
+    float: left;
+}
+
+.pay_info{
+    float: right;
+}
+
+#btn > button{
+    float: right;
+    width: 50%;
+    height: 30px;
+}
+
+
+
+#option{
+    height: 30px;
+    width: 200px;
+}

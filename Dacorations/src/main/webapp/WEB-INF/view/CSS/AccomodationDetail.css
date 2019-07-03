@@ -1,0 +1,153 @@
+@charset "UTF-8";
+#roomMain{
+    height: auto;
+    width: 100%;
+    background-color: #f2f2f2;
+    margin-top:10.2%;
+}
+.mainRoomHeader{
+    width: 60%;
+    height: 300px;
+    background-color:white;
+    margin: auto;
+    margin-top: 0.1%;
+}
+#mainTitle{
+	border:solid 1px;
+	height: 37px;
+	width: 60%;
+	margin: auto;
+	background-color: white;
+	text-align: center;
+	padding-top: 8px;
+	border-radius: 5px;
+	
+} 
+b{
+	font-size: 20px;
+	margin-left: 15%;
+}
+#a{
+	float: right;
+	color: coral;
+	font-weight: bold;
+	margin-right: 1%;
+}
+#mainContent{
+    margin: auto;
+    height: auto;
+    width: 60%;
+    background-color:white;
+
+}
+#roomPage{
+    margin: auto;
+    height: 10px;
+    text-align: center;
+}
+.roomInfo{
+    width: 100%;
+    height: 210px;
+   
+}
+
+a{
+	text-decoration: none;
+}
+.roomInfo span {
+	margin-right: 1%;
+	background-color: #ff5146;
+	background: -webkit-gradient(linear, left top, right bottom, color-stop(0, #ff5146),
+		color-stop(100%, #ff2d7b));
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ff4143",
+		endColorstr="#ff1764", GradientType=0);
+	color: white;
+	font-size: 14px;
+}
+.imgBox{
+height:auto;
+	width: 100%;
+	
+}
+.imgBoxs img{
+	cursor: pointer;
+}
+.imgBoxs{
+	  border: 1px groove gray;
+	height: 50px;
+    width: 13.5%;
+    float: left;
+	
+
+}
+.roomInfo p{
+    margin: 0;
+    font-size: 10px;
+    font-weight: bold;
+    margin-top: -10px;
+}   
+.roomInfo h4{
+	font-size: 11px;
+}
+.roomInfo img{
+	margin-top:1%;
+}
+.chekinChekout{
+    width: 100%;
+    height: 70px;
+    text-align: center;
+} 
+#chekin{
+float: left;
+width: 50%;
+height: 70px;
+border-top: solid 0.5px gainsboro;
+border-bottom: solid 0.5px gainsboro;
+}  
+#chekout{
+float: left;
+width: 49%;
+border-top: solid 0.5px gainsboro;
+border-bottom: solid 0.5px gainsboro;
+height: 70px;
+} 
+.chekinChekout input{
+    width: 95%;
+    height: 40px;
+    border: none;
+    font-size: 17px;
+}     
+
+.room{
+    height: 220px;
+    width: 96%;
+    border-bottom: solid 0.5px;
+    padding-bottom: 2%;
+    padding-top: 2%;
+}
+.roomImg{
+    float: left;
+    height: 180px;
+    width: 40%;
+    border-radius: 10px;
+}
+.roomImg img{
+    width: 100%;
+    height: 180px;
+    border-radius: 10px;
+}
+.roomInfos{
+    float: left;
+    height: 170px;
+    width: 45%;
+    margin-left: 3%;
+}
+.roomInfos h2{
+    margin: 0;
+}
+.roomInfos h1{
+    float: right;
+    font-size: 25px;
+    margin-top: -10px;
+    color: #ff2d7b;
+}

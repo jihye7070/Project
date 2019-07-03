@@ -37,8 +37,8 @@ function del(num) {
 				<li id="title">제목</li>
 				<li id="title_detail">
 					<c:choose>
-						<c:when test="${fn:length(board.boardSubject)>25 }">
-							<pre><c:out value="${fn:substring(board.boardSubject,0,24) }" />.......</pre>
+						<c:when test="${fn:length(board.boardSubject)>24 }">
+							<pre><c:out value="${fn:substring(board.boardSubject,0,23) }" />....</pre>
 							</c:when>
 						<c:otherwise>
 							<pre><c:out value="${board.boardSubject }" /></pre>
@@ -50,8 +50,8 @@ function del(num) {
 				<li id="name">작성자</li>
 				<li id="name_detail">
 				<c:choose>
-						<c:when test="${fn:length(board.boardName)>11	 }">
-							<pre><c:out value="${fn:substring(board.boardName,0,10) }" />.......</pre>
+						<c:when test="${fn:length(board.boardName)>18	 }">
+							<pre><c:out value="${fn:substring(board.boardName,0,17) }" />....</pre>
 							</c:when>
 						<c:otherwise>
 							<pre><c:out value="${board.boardName }" /></pre>

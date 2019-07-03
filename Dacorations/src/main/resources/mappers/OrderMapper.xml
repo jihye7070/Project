@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="OrderMapper">
+	<cache />
+	<!-- (ORDER_NUM, PRODUCT_NUM, CATEGORY_NUM, RESERVE_TIME, CHEKIN, CHEKOUT, 
+		RESERVE_DATE, SEATE_NUM) -->
+	<!-- 주문이 등록될 때 주문번호,,,ㅠㅠㅠ머하고잇는지모르겟ㅅ아ㅓㄴ뮤ㅜ라먼유ㅠ -->
+	<select id="orderNum" resultType="Integer">
+		select
+		nvl(max(ORDER_NUM),0) +1
+		from
+		orders
+	</select>
+
+	<insert id="orderInsert" parameterType="OrderDTO">
+		INSERT INTO orders
+		(ORDER_NUM, MEMBER_ID, RESERVE_NAME, RESERVE_TELL, ORDER_DATE)
+		VALUES
+		(#{orderNum}, #{memberId}, #{reserveName} , #{reserveTell}, sysdate)
+	</insert>
+
+	<insert id="orderList" parameterType="OrderDTO">
+		INSERT INTO ORDERLIST
+		(ORDER_NUM, PRODUCT_NUM, CATEGORY_NUM, RESERVE_TIME, CHEKIN, CHEKOUT,
+		RESERVE_DATE, SEATE_NUM)
+		VALUES (#{orderNum}, #{productNum},
+		#{categoryNum} , #{reserveTime},
+		#{checkIn},#{checkOut},#{reserveDate},#{seateNum})
+	</insert>
+
+	<insert id="payMentInsert" parameterType="PaymentDTO">
+		INSERT INTO PAYMENT
+		(PAY_NUM, ORDER_NUM, CARD_NUM, PAY_PRICE,
+		CARD_TERM,CARD_NAME,PAY_DATE)
+		VALUES ((select nvl(max(PAY_NUM),0) +1
+		from PAYMENT),#{orderNum}, #{cardNum}, #{payPrice} , #{cardTerm},
+		#{cardName}, sysdate)
+	</insert>
+
+	<insert id="option" parameterType="OptionDTO">
+		INSERT INTO OPTIONLIST
+		(OPTION_NUM, ORDER_NUM)
+		VALUES (#{optionNum},#{orderNum})
+	</insert>
+	<select id="orderSeat" parameterType="Long" resultType="String">
+		select
+		SEATE_NUM from ORDERLIST where PRODUCT_NUM=#{no}
+
+	</select>
+
+	<!-- orderDetail, -->
+	<select id="searchOrder" parameterType="string"
+		resultType="OrderDetailDTO">
+
+		select
+		r.RESERVE_TIME, r.CHEKIN, r.CHEKOUT, r.RESERVE_DATE,
+		r.SEATE_NUM,f.FOOD_IMGSTORE,f.FOOD_NAME
+		from ORDERS o
+		join ORDERLIST r
+		on(o.ORDER_NUM=r.ORDER_NUM)
+		join DATEPRODUCT D
+		on(r.PRODUCT_NUM=d.PRODUCT_NUM)
+		join DATEFOOD f
+		on(d.PRODUCT_NUM=f.PRODUCT_NUM)
+
+		where o.member_id = #{member} and
+		r.category_num=2
+
+
+	</select>
+
+
+
+	<select id="searchOrderAD" parameterType="string"
+		resultType="OrderDetailDTO">
+
+		select r.RESERVE_TIME, r.CHEKIN, r.CHEKOUT, r.RESERVE_DATE,
+		r.SEATE_NUM,h.ROOM_IMGSTORE,h.ROOM_KIND from ORDERS o join ORDERLIST r
+		on(o.ORDER_NUM=r.ORDER_NUM)
+		join DATEPRODUCT D on(r.PRODUCT_NUM=d.PRODUCT_NUM) join DATEROOM h
+		on(d.PRODUCT_NUM=h.PRODUCT_NUM)
+
+		where o.member_id =  #{member} and r.category_num=3
+
+
+	</select>
+
+</mapper>

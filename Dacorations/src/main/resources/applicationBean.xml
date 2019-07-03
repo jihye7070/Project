@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+">
+<!-- MemberSevice	 -->
+<bean id="memberService" class="Service.MemberService"/> 
+<!-- AccomodationsSevice	 -->
+<bean id="accomodationService" class="Service.AccomodationService"/> 
+<bean id="accomodationDetailServiceService" class="Service.AccomodationDetailService"/> 
+<!-- TheaterSevice	 -->
+<bean id="theaterRegisterService" class="Service.TheaterRegisterService"/> 
+<bean id="theaterMainService" class="Service.TheaterMainService"/> 
+<!-- MovieSevice	 -->
+<bean id="movieRegisterService" class="Service.MovieRegisterService"/> 
+<bean id="movieDetailService" class="Service.MovieDetailService"/> 
+<!-- ScreenService -->
+<bean id="screenRegisterService" class="Service.ScreenRegisterService"/> 
+
+
+<!-- Repository	 -->
+<bean id="memberSessionRepository" class="Repository.MemberSessionRepository"/>	
+<bean id="accomodationRepository" class="Repository.AccomodationRepository"/>	
+<bean id="accomodationDetailRepository" class="Repository.AccomodationDetailRepository"/>
+<bean id="theaterRegisterRepository" class="Repository.TheaterRegisterRepository"/>		
+<bean id="movieRegistRepository" class="Repository.MovieRegistRepository"/>	
+<bean id="movieDetailRepository" class="Repository.MovieDetailRepository"/>	
+<bean id="screenRegisterRepository" class="Repository.ScreenRegisterRepository"/>
+<bean id="dateProductRepository" class="Repository.DateProductRepository"/>		
+
+
+</beans>
+

@@ -1,0 +1,108 @@
+body {
+    font-family: "Jua", sans-serif;
+}
+
+a {
+    color: #000;
+    text-decoration: none;
+}
+
+a:hover {
+    color: lightsalmon;
+    font-weight: bold;
+}
+
+#main {
+    width: 1200px;
+    margin: 200px auto;
+}
+
+
+
+#selects{
+	margin-top:-3px;
+}
+
+#detailList {
+    width: 800px;
+    height: auto;
+    margin: 0 auto;
+}
+
+#detailMention {
+    width: 800px;
+    height: 40px;
+    padding-top: 1%;
+    font-size: 20px;
+    font-weight: bold;
+    border:solid 2px;
+    text-align: center;
+    border-radius: 10px;
+    margin: 0 auto;
+}
+
+#optionList {
+    width: 800px;
+    height: 30px;
+    border-radius: 4px;
+    background-color: #07c;
+    margin-bottom: -22px;
+    margin: 0 auto;
+}
+.option{
+    float: left;
+    width: 264px;
+    border: solid 1px  black;
+    padding-top: 5px;
+    height: 24px;
+    text-align: center;
+    font-size: 15px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+#b{
+	color: green;
+	font-size: 17px;
+}
+#c{
+	color:blue;
+	font-size: 17px;
+}
+a{
+	text-decoration: none;
+}
+.accomodationList {
+    width: 97%;
+    height: 200px;
+    margin-top: 2%;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.accomodationList img {
+    width: 30%;
+    height: 180px;
+}
+
+.detailContent {
+    height: 175px;
+    width: 69%;
+    float: right;
+}
+
+.detailContent h3 {
+    margin: 0;
+    color: #07c;
+}
+
+.detailContent p, b {
+    font-size: 12px;
+}
+
+
+
+.detailSearch p {
+    margin: 0;
+    margin-top: 5%;
+}

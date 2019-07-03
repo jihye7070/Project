@@ -2,6 +2,8 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%><!-- 날짜변환때문에 -->
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page import="java.util.*"%>
 <%@ page import="Model.BoardDTO"%>
 <%
@@ -12,6 +14,8 @@
 <head>
 <meta charset="UTF-8">
 <link href="${pageContext.request.contextPath }/CSS/BoardUpdate.css" 	rel="stylesheet" type="text/css">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js" type="text/javascript"></script>
 <script type="text/javascript">
 function formCheck(){
 	    var title = document.forms[0].boardTitle.value;
@@ -56,12 +60,39 @@ function keyup(obj, maxByte) {
     	if(maxByte==120){
     		alert("제목은 "+40 + "자를 초과 입력 할 수 없습니다.");
     	}
-    	if(maxByte==4000){
+/*     	if(maxByte==4000){
     		alert("내용은 "+1333 + "자를 초과 입력 할 수 없습니다.");
-    	}
+    	} */
         str2 = strValue.substr(0, len);
         obj.value = str2;
         chkword(obj, 4000);
+    }
+}
+document.getElementById('textarea').addEventListener('keyup', checkByte);
+var countSpan = document.getElementById('count');
+var message = '';
+var MAX_MESSAGE_BYTE = 4000;
+document.getElementById('max-count').innerHTML = MAX_MESSAGE_BYTE.toString();
+
+function count(message) {
+    var totalByte = 0;
+
+    for (var index = 0, length = message.length; index < length; index++) {
+        var currentByte = message.charCodeAt(index);
+        (currentByte > 128) ? totalByte += 3 : totalByte+=2;
+    }
+    return totalByte;
+}
+function checkByte(event) {
+    const totalByte = count(event.target.value);
+
+    if (totalByte <= MAX_MESSAGE_BYTE) {
+        countSpan.innerText = totalByte.toString();
+        message = event.target.value;
+    } else {
+        alert(MAX_MESSAGE_BYTE + "바이트까지 전송가능합니다.");
+        countSpan.innerText = count(message).toString();
+        event.target.value = message;
     }
 }
 </script>
@@ -79,18 +110,28 @@ function keyup(obj, maxByte) {
 			
 				
 					<li id="name">이 름</li>
-					<li id="name_detail"><%=board.getBoardName() %></li>
+					<li id="name_detail"><c:choose>
+							<c:when test="${fn:length(board.boardName)>11	 }">
+							<c:out value="${fn:substring(board.boardName,0,10) }" />.......
+							</c:when>
+							<c:otherwise>
+								<c:out value="${board.boardName }" />
+							</c:otherwise>
+						</c:choose></li>
 				</ul>
 			</div>
 			<div class="content_wrap">
 				<ul id="list">
-					<li id="content_detail"><textarea name="boardContent" cols="120" rows="15" onkeyup="keyup(this,4000)" ><%=board.getBoardContent() %></textarea></li>
+					<li id="content_detail">
+					<textarea name="boardContent" id="textarea" cols="120" rows="15" onkeyup="keyup(4000)">${board.boardContent }</textarea>
+					<span id="count">0</span>/<span id="max-count">4000</span></li>
 				</ul>
 			</div>
 			
 			<div id="btn_wrap">
 				<input type="submit" value="수정완료"  id="btn" >
 				<input type="button" value="초기화" onclick="location.href='BoardUpdate?num=${board.boardNum }'"  id="btn" />
+				<input type="button" value="목록" onclick="location.href='BoardList'"  id="btn" />
 			</div>
 			
 		</div>
