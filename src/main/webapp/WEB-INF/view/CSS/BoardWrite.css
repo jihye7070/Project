@@ -1,0 +1,95 @@
+.wrap_content{
+	width: 1000px;
+    margin: 50px 0;
+}
+.wrap_list{
+	width: 1000px;
+    margin: 20px 0;
+    text-align: center;
+}
+#list{
+	list-style: none;
+	padding: 0;
+}
+
+#list li{
+	display: inline-block;
+    position: relative;
+    text-align: center;
+    font-weight: bold;
+    font-size: 18px;
+	padding: 10px 0 10px;
+	border-top : 1px;
+}
+#title{
+	width: 70px;
+    font-weight: bold;
+}
+#title_detail{
+	width: 400px;
+	
+    margin-right: 10px;
+}
+input{
+	height: 30px;
+
+	}
+#boardTitle{
+	width: 380px;
+}
+#pass{
+	width: 100px;
+    font-weight: bold;
+}
+#pass_detail{
+	width: 100px;
+}
+#boardPass{
+	width: 100px;
+}
+#name{
+	width: 50px;
+    font-weight: bold;
+}
+#boardName{
+	width: 200px;
+}
+.content_wrap{
+	width:800px;
+	margin: 0 auto;
+}
+#content_detail{
+	width: 800px;
+	padding-left: 30px;
+	padding-top:30px;
+	margin: 0 auto;
+}
+#btn_wrap{
+	width: 400px;
+	margin: 0 auto;
+}
+#btn{
+	margin: 10px;
+	width:100px;
+	height: 38px;
+}
+#btn1{
+	margin: 10px;
+	width:100px;
+	height: 38px;
+}
+.error{
+	font-size: 8px;
+	float: right;
+}
+.wrap span {
+    bottom: -10px;
+    right: 5px;
+    font-size: 13px;
+}
+#boardContent{
+	width: 850px;
+	height: 250px;
+	resize: none;
+	overflow-x: hidden;
+}

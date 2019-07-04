@@ -1,0 +1,102 @@
+.wrap_content{
+	width: 1000px;
+    margin: 50px auto;
+}
+#field{
+	border: 1px solid #e0e0e0;
+}
+#searchType{
+	width: 150px;
+	height: 40px;
+    font-size: 15px;
+	margin-left: 20px;
+}
+#keyword{
+	width: 580px;
+	height: 38px;
+    font-size: 15px;
+	margin-left: 20px;
+	margin-right: 20px;
+}
+#btnSearch{
+	width:60px;
+	height: 38px;
+}
+#btnReset, .btn{
+	width:80px;
+	height: 38px;
+}
+p{
+	font-size: 13px;
+}
+.wrap_list{
+	width: 900px;
+	margin: 0 auto;
+}
+#list{
+	list-style: none;
+	padding: 0;
+}
+
+#list li{
+	display: inline-block;
+    position: relative;
+    text-align: center;
+    font-weight: bold;
+    font-size: 18px;
+	padding: 10px 0 10px;
+	border-top : 1px;
+    background: #f8f8f8;
+}
+#num{
+	width: 80px;
+}
+#title{
+	width: 500px;
+}
+#name{
+	width: 150px;
+}
+#date{
+	width: 150px;
+}
+
+.wrap_table{
+	width: 900px;
+	margin: 0 auto;
+}
+table{
+	
+}
+table td{
+	padding: 10px 0 10px;
+}
+#t_num{
+	width: 80px;
+	text-align: center;
+}
+#t_title{
+	width: 470px;
+	padding-left: 30px;
+}
+#t_name{
+	width: 150px;
+	padding-left: 20px;
+}
+#t_date{
+	width: 150px;
+	text-align: center;
+}
+.wirte{
+	width : 900px;
+    margin: 50px auto;
+    text-align: right;
+}
+.paging{
+	width : 500px;
+    margin: 20px auto;
+    text-align: center;
+}
+.paging a{
+	margin: 0 10px 0 10px;
+}
