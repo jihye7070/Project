@@ -63,7 +63,7 @@
 				<option value="content">글내용</option>
 				<option value="ticon">제목+내용</option>
 				<option value="name">작성자</option>
-			</select> <input type="text" id="keyword" name="keyword">
+			</select> <input type="text" id="keyword" name="keyword"  >
 			<button id="btnSearch" name="btnSearch"  onclick="search();" >검색</button>
 			<button id="btnReset" name="btnReset"
 				onclick="location.href='BoardList'">초기화</button>
@@ -94,20 +94,20 @@
 						href="BoardDetail?num=${list.boardNum}">
 						<c:choose>
 							<c:when test="${fn:length(list.boardSubject)>25 }">
-							<pre><c:out value="${fn:substring(list.boardSubject,0,24) }" />.......</pre>
+							<pre><c:out value="${fn:substring(list.boardSubject,0,24) }"  escapeXml="true" />.......</pre>
 							</c:when>
 							<c:otherwise>
-								<pre><c:out value="${list.boardSubject }" /></pre>
+								<pre><c:out value="${list.boardSubject }"  escapeXml="true" /></pre>
 							</c:otherwise>
 						</c:choose>
 							</a></td>
 					<td id="t_name">
 					<c:choose>
 							<c:when test="${fn:length(list.boardName)>11	 }">
-							<pre><c:out value="${fn:substring(list.boardName,0,10) }" />.......</pre>
+							<pre><c:out value="${fn:substring(list.boardName,0,10) }"  escapeXml="true" />.......</pre>
 							</c:when>
 							<c:otherwise>
-								<pre><c:out value="${list.boardName }" /></pre>
+								<pre><c:out value="${list.boardName }" escapeXml="true"  /></pre>
 							</c:otherwise>
 						</c:choose></td>
 					<td id="t_date" colspan="2"><fmt:formatDate

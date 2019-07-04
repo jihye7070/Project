@@ -87,18 +87,18 @@ function keyup(obj, maxByte) {
 				<ul id="list">
 					<li id="title">글제목</li>
 					<li id="title_detail">
-					<pre><input type="text" name="boardTitle" id="boardTitle"
-						value="<%=board.getBoardSubject() %>" onkeyup="keyup(this,40)"></pre></li>
+					<pre><input type="text" name="boardTitle"
+						value="${ fn:escapeXml(board.boardSubject) }" onkeyup="keyup(this,40)" id="boardTitle" escapeXml="true" ></pre></li>
 					<input type="hidden" name = "boardNum" value="<%=board.getBoardNum() %>">
 			
 				
 					<li id="name">이 름</li>
-					<li id="name_detail"><c:choose>
+					<li id="name_detail" escapeXml="true" ><c:choose>
 							<c:when test="${fn:length(board.boardName)>6	 }">
-						<pre>	<c:out value="${fn:substring(board.boardName,0,5) }" />.......</pre>
+						<pre><c:out value="${fn:substring(board.boardName,0,5) }"  escapeXml="true" />.......</pre>
 							</c:when>
 							<c:otherwise>
-						<pre>		<c:out value="${board.boardName }" /></pre>
+						<pre><c:out value="${board.boardName }" escapeXml="true" /></pre>
 							</c:otherwise>
 						</c:choose></li>
 				</ul>
@@ -106,7 +106,7 @@ function keyup(obj, maxByte) {
 			<div class="content_wrap">
 				<ul id="list">
 					<li id="content_detail">
-					<textarea name="boardContent" id="boardContent" cols="120" rows="15" onkeyup="keyup(this,1300)">${board.boardContent }</textarea>
+					<textarea name="boardContent" id="boardContent" cols="120" rows="15" onkeyup="keyup(this,1300)">${ fn:escapeXml(board.boardContent) }</textarea>
 					<span id="counter" >0</span>
 				</ul>
 			</div>
