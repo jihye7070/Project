@@ -94,20 +94,20 @@
 						href="BoardDetail?num=${list.boardNum}">
 						<c:choose>
 							<c:when test="${fn:length(list.boardSubject)>25 }">
-							<c:out value="${fn:substring(list.boardSubject,0,24) }" />.......
+							<pre><c:out value="${fn:substring(list.boardSubject,0,24) }" />.......</pre>
 							</c:when>
 							<c:otherwise>
-								<c:out value="${list.boardSubject }" />
+								<pre><c:out value="${list.boardSubject }" /></pre>
 							</c:otherwise>
 						</c:choose>
 							</a></td>
 					<td id="t_name">
 					<c:choose>
 							<c:when test="${fn:length(list.boardName)>11	 }">
-							<c:out value="${fn:substring(list.boardName,0,10) }" />.......
+							<pre><c:out value="${fn:substring(list.boardName,0,10) }" />.......</pre>
 							</c:when>
 							<c:otherwise>
-								<c:out value="${list.boardName }" />
+								<pre><c:out value="${list.boardName }" /></pre>
 							</c:otherwise>
 						</c:choose></td>
 					<td id="t_date" colspan="2"><fmt:formatDate
@@ -121,6 +121,7 @@
 		
 		<div class="wirte">
 			<input type="button" class="btn" onclick="location.href='BoardWriteForm'" value="글 작성">
+			<input type="button" class="btn" onclick="location.href='BoardList'" value="글 목록">
 		</div>
 
 		<div id="paging" style="text-align: center">

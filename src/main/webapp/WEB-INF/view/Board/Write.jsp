@@ -58,7 +58,7 @@
     	    }
 
             if (!pattern.test(passwd)) {
-            	alert('숫자+영문자+특수문자 조합으로 8자리 이상 사용해야 합니다.');
+            	alert('비밀번호는 숫자+영문자+특수문자 조합으로 8자리 이상 사용해야 합니다.');
                 $('#boardPass').val('').focus();
                 return false;
             }
@@ -94,13 +94,12 @@
 	 
 	        // 넘어가는 글자는 자른다.
 	        if (totalByte > maxByte) {
-	        	if(maxByte==120){
+	        	if(maxByte==40){
 	        		alert("제목은 "+40 + "자를 초과 입력 할 수 없습니다.");
-	        		document.getElementById('boardTitle').focus().value() ;
 
 
 	        	}
-	        	if(maxByte==60){
+	        	if(maxByte==20){
 	        		alert("이름은"+20 + "자를 초과 입력 할 수 없습니다.");
 	        	}
 	        	/* if(maxByte==40){
@@ -125,11 +124,11 @@
 			<ul id="list">
 				<li id="title">제 목</li>
 				<li id="title_detail"><input type="text" name="boardTitle" id="boardTitle"
-					class="byteLimit" onkeyup="keyup(this,120)" onfocus="this.value = this.value;"/></li>
+					class="byteLimit" onkeyup="keyup(this,40)" /></li>
 
 				<li id="name">이 름</li>
 				<li id="name_detail"><input type="text" name="boardName" id="boardName"
-					class="byteLimit" onkeyup="keyup(this,60)" /></li>
+					class="byteLimit" onkeyup="keyup(this,20)" /></li>
 				<li id="pass">비밀번호</li>
 				<li id="pass_detail"><input type="password" name="boardPass" id="boardPass" 
 					class="byteLimit"  />

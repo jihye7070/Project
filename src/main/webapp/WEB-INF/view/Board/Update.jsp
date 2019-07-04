@@ -53,7 +53,7 @@ function keyup(obj, maxByte) {
     for (var i = 0; i < strLen; i++) {
         oneChar = strValue.charAt(i);
         if (escape(oneChar).length > 4) {
-            totalByte += 2;
+            totalByte ++;
         } else {
             totalByte++;
         }
@@ -66,7 +66,7 @@ function keyup(obj, maxByte) {
 
     // 넘어가는 글자는 자른다.
     if (totalByte > maxByte) {
-    	if(maxByte==120){
+    	if(maxByte==40){
     		alert("제목은 "+40 + "자를 초과 입력 할 수 없습니다.");
     	}
      	if(maxByte==1300){
@@ -86,18 +86,19 @@ function keyup(obj, maxByte) {
 			<div class="wrap_list">
 				<ul id="list">
 					<li id="title">글제목</li>
-					<li id="title_detail"><input type="text" name="boardTitle" id="boardTitle"
-						value="<%=board.getBoardSubject() %>" onkeyup="keyup(this,120)"></li>
+					<li id="title_detail">
+					<pre><input type="text" name="boardTitle" id="boardTitle"
+						value="<%=board.getBoardSubject() %>" onkeyup="keyup(this,40)"></pre></li>
 					<input type="hidden" name = "boardNum" value="<%=board.getBoardNum() %>">
 			
 				
 					<li id="name">이 름</li>
 					<li id="name_detail"><c:choose>
 							<c:when test="${fn:length(board.boardName)>6	 }">
-							<c:out value="${fn:substring(board.boardName,0,5) }" />.......
+						<pre>	<c:out value="${fn:substring(board.boardName,0,5) }" />.......</pre>
 							</c:when>
 							<c:otherwise>
-								<c:out value="${board.boardName }" />
+						<pre>		<c:out value="${board.boardName }" /></pre>
 							</c:otherwise>
 						</c:choose></li>
 				</ul>

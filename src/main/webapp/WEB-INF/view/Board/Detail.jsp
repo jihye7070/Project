@@ -21,11 +21,15 @@
 
 <script type="text/javascript">
 function del(num) {
-	var pass = prompt("글 비밀번호 ?","");	
+	var pass = prompt("글 비밀번호 입력","");	
 	if( pass == "${board.boardPass }"){
-		location.href='BoardDelete?num='+num
+		var result = confirm("정말 삭제하시겠습니까?");
+		if(result){
+			location.href='BoardDelete?num='+num
+		}
 	}else{
 		alert("비밀번호가 맞지 않습니다.")
+		prompt("글 비밀번호 입력","");	
 		return false;
 	}
 }

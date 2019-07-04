@@ -65,12 +65,6 @@ p{
 	width: 900px;
 	margin: 0 auto;
 }
-table{
-	
-}
-table td{
-	padding: 10px 0 10px;
-}
 #t_num{
 	width: 80px;
 	text-align: center;
@@ -78,10 +72,12 @@ table td{
 #t_title{
 	width: 470px;
 	padding-left: 30px;
+	font-size: 15px;
 }
 #t_name{
 	width: 150px;
 	padding-left: 20px;
+    font-size: 15px;
 }
 #t_date{
 	width: 150px;
