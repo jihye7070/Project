@@ -106,8 +106,10 @@ function keyup(obj, maxByte) {
 			<div class="content_wrap">
 				<ul id="list">
 					<li id="content_detail">
+					<div class="wrap">
 					<textarea name="boardContent" id="boardContent" cols="120" rows="15" onkeyup="keyup(this,1300)">${ fn:escapeXml(board.boardContent) }</textarea>
 					<span id="counter" >0</span>
+					</div>
 				</ul>
 			</div>
 			

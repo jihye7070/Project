@@ -77,8 +77,10 @@ input{
 	width:100px;
 	height: 38px;
 }
- span {
-    position: absolute;
-       bottom: -15px;
+.wrap span {
+    bottom: -10px;
     right: 5px;
+    font-size: 13px;
+    
+    font-weight: bold;
 }
