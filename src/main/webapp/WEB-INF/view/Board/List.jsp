@@ -26,16 +26,30 @@
 <c:url var="getBoardURL" value="/BoardList"></c:url>
 <script type="text/javascript">
 	$(document).on('click', '#btnSearch', function(e) {
-
+		
+		var str = $('#keyword').val();
+	
+		var key = ConvertSystemSourcetoHtml(str);
+		
 		e.preventDefault();
-
+		
 		var url = "${getBoardURL}";
 		url = url + "?searchType=" + $('#searchType').val();
-		url = url + "&keyword=" + $('#keyword').val();
+		url = url + "&keyword=" + key;
 		location.href = url;
 		console.log(url);
-
+		
 	});
+
+		   function ConvertSystemSourcetoHtml(str){
+		         str = str.replace(/</g,"%3C");
+		         str = str.replace(/>/g,"%3E");
+		         str = str.replace(/&/g, "%26");
+		         str = str.replace(/;/g, "%3B");
+		         str = str.replace(/#/g, "%23");
+		         str = str.replace(/=/g, "%3D");
+		         return str;
+		      }
     function search(){
     	var keyword = document.getElementById('keyword').value;
     	var tmpkeyword = document.getElementById('keyword').value.replace(/\s|　/gi, '');
@@ -46,6 +60,15 @@
 	        return false; // false를 리턴합니다.
 	    }
     }
+/*       function replace(inum) { // 정규식을 이용한 문자 변경 
+    	inum = inum.replace(/&/g, ""); 
+    	inum = inum.replace(/\+/g, ""); 
+    	return inum; 
+    	} 
+    function replace(inum) { // 인코딩 함수 이용
+    	return encodeURIComponent(inum); 
+    }
+ */
 </script>
 
 

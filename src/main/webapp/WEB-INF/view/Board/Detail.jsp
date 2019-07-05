@@ -12,7 +12,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//Ddiv HTML 4.01 divansitional//EN" "http://www.w3.org/div/html4/loose.ddiv">
 <html>
 <head>
-<meta charset="UTF-8">
+<meta>
 
 <link href="${pageContext.request.contextPath }/CSS/BoardDetail.css"
 	rel="stylesheet" type="text/css">
@@ -21,17 +21,27 @@
 
 <script type="text/javascript">
 function del(num) {
-	var pass = prompt("글 비밀번호 입력","");	
-	if( pass == "${board.boardPass }"){
-		var result = confirm("정말 삭제하시겠습니까?");
-		if(result){
-			location.href='BoardDelete?num='+num
+	while(true){
+		var pass = prompt("글 비밀번호 입력","");	
+		
+		if( pass == "${board.boardPass }"){
+			var result = confirm("정말 삭제하시겠습니까?"); 
+			if(result){
+				location.href='BoardDelete?num='+num
+				break;
+			}
+			break;
+		}else{
+			if(pass==null){
+				break;
+			}
+			alert("비밀번호가 맞지 않습니다.")
 		}
-	}else{
-		alert("비밀번호가 맞지 않습니다.")
-		prompt("글 비밀번호 입력","");	
-		return false;
 	}
+	
+}
+function back(){
+	window.history.back();
 }
 
 </script>

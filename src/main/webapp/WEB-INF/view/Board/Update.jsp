@@ -12,7 +12,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta charset="UTF-8">
+<meta>
 <link href="${pageContext.request.contextPath }/CSS/BoardUpdate.css" 	rel="stylesheet" type="text/css">
 
 <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
@@ -88,12 +88,12 @@ function keyup(obj, maxByte) {
 					<li id="title">글제목</li>
 					<li id="title_detail">
 					<pre><input type="text" name="boardTitle"
-						value="${ fn:escapeXml(board.boardSubject) }" onkeyup="keyup(this,40)" id="boardTitle" escapeXml="true" ></pre></li>
+						value="${ fn:escapeXml(board.boardSubject) }" onkeyup="keyup(this,40)" id="boardTitle" ></pre></li>
 					<input type="hidden" name = "boardNum" value="<%=board.getBoardNum() %>">
 			
 				
 					<li id="name">이 름</li>
-					<li id="name_detail" escapeXml="true" ><c:choose>
+					<li id="name_detail" ><c:choose>
 							<c:when test="${fn:length(board.boardName)>6	 }">
 						<pre><c:out value="${fn:substring(board.boardName,0,5) }"  escapeXml="true" />.......</pre>
 							</c:when>

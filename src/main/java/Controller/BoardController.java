@@ -1,5 +1,6 @@
 package Controller;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -34,11 +35,13 @@ public class BoardController {
 	}
 	
 	//글 리스트 페이지
+	
 	@RequestMapping(value="/BoardList", method=RequestMethod.GET)
 	public String list(Model model,@RequestParam(required=false, defaultValue="title")String searchType, 
 									@RequestParam(required=false) String keyword,
 									@ModelAttribute Search page) {
 		
+		System.out.println(keyword+"받아오는 키워 ㅡㄷ");
 		Search search = new Search();
 		search.setSearchType(searchType);
 		search.setKeyword(keyword);

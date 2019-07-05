@@ -77,7 +77,7 @@
 	        var len = 0;
 	        var oneChar = "";
 	        var str2 = "";
-	 
+	        
 	        for (var i = 0; i < strLen; i++) {
 	            oneChar = strValue.charAt(i);
 	            if (escape(oneChar).length > 4) {
@@ -96,7 +96,7 @@
 	        if (totalByte > maxByte) {
 	        	if(maxByte==40){
 	        		alert("제목은 "+40 + "자를 초과 입력 할 수 없습니다.");
-
+	        		
 
 	        	}
 	        	if(maxByte==20){
