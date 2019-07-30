@@ -1,19 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta>
 <link href="${pageContext.request.contextPath }/CSS/BoardWrite.css"
 	rel="stylesheet" type="text/css">
-<title>글 쓰기</title>
-<!-- 
-<link href="/css/footer.css" rel="stylesheet" type="text/css">
-
-<script src = "../js/header.js"></script>
-설정(기본값) -->
-<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+	<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 <script>
 	$(document).ready(function(){
 		$(function() {
@@ -23,36 +19,7 @@
 		      });
 		      $('#boardContent').keyup();
 		});
-		
-		/*  $(function(){
-	          var title = $("#boardTitle");
-	          var name = $("#boardName");
-	          var blank_pattern = /^\s+|\s+$/g;
-
-
-	          
- 	          title.blur(function(){
-	             if(title.val().replace(blank_pattern,'')==""){
-	                   alert("제목에 공백만 사용할수 없습니다.");
-	                    title.focusout();
-	                    title.focusin();
-	                    return false;
-	                }
-	          });
-	          
-	          name.blur(function(){
-		         if(name.val().replace(blank_pattern,'')==""){
-		         	alert("이름에 공백만 사용할수 없습니다.");
-		         	name.focusout();
-		            name.focusin();
-		            return false;  
-		        	}
-		       	});
-	       });  */
-	             
 	}); 
-
-
      function formCheck(){
     	// 사용하기 쉽도록 변수를 선언하여 담아주고,
     	    var title = document.forms[0].boardTitle.value;
@@ -94,6 +61,7 @@
     	        document.forms[0].boardContent.focus();
     	        return false;
     	    }
+    	    
     }
 
 	    function keyup(obj, maxByte) {
@@ -144,10 +112,16 @@
 
      
 </script>
+<title>답글 쓰기</title>
+<%
+	String boardNum = request.getParameter("boardNum");
+%>
+<c:set var = "boardNum" value="<%=boardNum %>" />
 </head>
 <body>
-	<form:form method="post" action="BoardWrite" id="reset"
-		onsubmit="return formCheck();"  enctype="multipart/form-data">
+	<form:form method="post" action="BoardReply" id="reset"
+		onsubmit="return formCheck();">
+		<input type="hidden" id="parentNum" name="parentNum" value="${boardNum }">
 		<div class="wrap_content">
 			<div class="wrap_list">
 			<ul id="list">
@@ -174,10 +148,9 @@
 						<span id="counter" >0</span>
 					</div>
 					</li>
-					<li><input type="file" name="files" multiple/></li>
 				</ul>
 			</div>
-			
+
 			<div>
 				<div id="btn_wrap">
 					<input type="submit" value="등록" id="btn" /> 
@@ -188,4 +161,4 @@
 		</div>
 	</form:form>
 </body>
-</html>        
+</html>

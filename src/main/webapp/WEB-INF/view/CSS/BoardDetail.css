@@ -1,10 +1,10 @@
 .wrap_content{
-	width: 1000px;
+	width: 1200px;
     margin: 50px auto;
 }
 .list_wrap{
     background: none #fbfbfb;
-    width: 900px;
+    width: 1100px;
 }
 #list{
 	list-style: none;
@@ -14,7 +14,6 @@
 #list li{
 	display: inline-block;
     position: relative;
-    font-size: 15px;
 	padding: 10px 0 10px;
 }
 #title{
@@ -23,30 +22,30 @@
     margin-left: 20px;
 }
 #title_detail{
-	width: 400px;
+	width: 540px;
 	
 }
 #date{
-	width: 50px;
+	width: 60px;
     font-weight: bold;
 }
 #date_detail{
-	width: 100px;
+	width: 80px;
 }
 #name{
-	width: 50px;
+	width: 60px;
     font-weight: bold;
 }
 #name_detail{
-	width: 150px;
+	width: 210px;
 }
 .content_wrap{
-	width:900px;
+	width:1050px;
 	min-height: 200px;
     padding: 30px 20px;
 }
 #content_detail{
-	width: 870px;
+	width: 1050px;
 	word-break:break-all;
 	overflow: hidden;
 }

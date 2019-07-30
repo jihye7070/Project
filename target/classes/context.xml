@@ -23,7 +23,15 @@
 	<mvc:resources mapping="/**" 
 		location="/WEB-INF/view/" cache-period="31556926"/> <!-- 이미지나 파일 불러올 때 -->
 		
-	  
+	<!-- file Upload -->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <!-- max upload size in bytes -->
+        <property name="maxUploadSize" value="100000000" /> 
+        <!-- max size of file in memory (in bytes) -->
+        <property name="maxInMemorySize" value="100000000" /> 
+    </bean>
+
+
  	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
 		destroy-method="close">
 		<property name="driverClass" value="oracle.jdbc.driver.OracleDriver" />

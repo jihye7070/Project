@@ -12,6 +12,11 @@ public class BoardDTO implements Serializable  {
 	private Date boardDate;
 	private Long boardNum;
 	private Long rowNum;
+	private Long reNum;
+	private Long reLev;
+	private Long reSeq;
+	
+	
 	
 	public BoardDTO() {}
 
@@ -23,6 +28,32 @@ public class BoardDTO implements Serializable  {
 		this.boardContent = boardContent;
 	}
 
+	
+	
+
+	public Long getReNum() {
+		return reNum;
+	}
+
+	public void setReNum(Long reNum) {
+		this.reNum = reNum;
+	}
+
+	public Long getReLev() {
+		return reLev;
+	}
+
+	public void setReLev(Long reLev) {
+		this.reLev = reLev;
+	}
+
+	public Long getReSeq() {
+		return reSeq;
+	}
+
+	public void setReSeq(Long reSeq) {
+		this.reSeq = reSeq;
+	}
 
 	public String getBoardSubject() {
 		return boardSubject;

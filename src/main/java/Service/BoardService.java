@@ -16,20 +16,44 @@ public class BoardService {
 
 	@Autowired
 	private BoardRepository boardRepository;
+	
+	
 	public Integer boardWrite(Model model, BoardWriteCommand bCommand) {
 		Integer result = 0;
 		
 		BoardDTO bdto = new BoardDTO(bCommand.getBoardTitle(), bCommand.getBoardName(), bCommand.getBoardPass(), bCommand.getBoardContent());
 		
+		/*int boardReRef = boardRepository.getBoardReRef(bCommand);
+		bCommand.setReNum((long) boardReRef);*/
+		
 		result = boardRepository.boardInsert(bdto);
+		
 		model.addAttribute("bdto", bdto);
 		return result;
 	}
-/*	public void boardList(Model model) {
-		List<BoardDTO> list = boardRepository.boardList();
-		model.addAttribute("list", list);
-	}*/
+	
+	/*public BoardDTO boardReply(Model model, BoardWriteCommand bCommand) {
+		
+		
+		BoardDTO bdto = new BoardDTO();
+		
+		BoardDTO replyInfo = boardRepository.boardReplyInfo(bCommand);
 
+		System.out.println(replyInfo.getReSeq()+"djkfhajdhfjsk");
+		bCommand.setBoardNum(replyInfo.getBoardNum());
+		bCommand.setReNum(replyInfo.getReNum());
+		bCommand.setReLev(replyInfo.getReLev());
+		bCommand.setReSeq(replyInfo.getReSeq());
+		
+		
+		int insertCnt = 0;
+		insertCnt += boardRepository.updateBoardReSeq(bCommand);
+		insertCnt += boardRepository.boardReplyInsert(bCommand);
+		
+		model.addAttribute("bdto", bdto);
+		return bdto;
+	}*/
+	
 	public void searchList(Search search, Model model,Paging  paging) {
 
 		List<BoardDTO> list = boardRepository.searchList(paging,search);
@@ -66,6 +90,11 @@ public class BoardService {
 		// TODO Auto-generated method stub
 		boardRepository.boardDelete(num);
 	}
-	
+
+	public List<BoardDTO> downList() {
+		List<BoardDTO> list = boardRepository.downList();
+		return list;
+	}
+
 	
 }

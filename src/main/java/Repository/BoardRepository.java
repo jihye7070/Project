@@ -6,6 +6,7 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import Command.BoardWriteCommand;
 import Model.BoardDTO;
 import Model.Paging;
 import Model.Search;
@@ -19,10 +20,16 @@ public class BoardRepository {
 		return sqlSession.insert("BoardMapper.boardInsert",bdto);
 	}
 
-/*	public List<BoardDTO> boardList() {
+	public int boardReplyInsert(BoardWriteCommand bCommand) {
 		// TODO Auto-generated method stub
-		return sqlSession.selectList("BoardMapper.boardList");
+		return sqlSession.insert("BoardMapper.replyInsert",bCommand);
+	}
+
+/*	public Integer boardReplyInsert(BoardDTO bdto) {
+		// TODO Auto-generated method stub
+		return sqlSession.insert("BoardMapper.replyInsert",bdto);
 	}*/
+
 
 	public List<BoardDTO> searchList(Paging paging, Search search) {
 		// TODO Auto-generated method stub
@@ -67,6 +74,26 @@ public class BoardRepository {
 		if(count==1) result = true;
 		return result;
 	}
+/*	public int getBoardReRef(BoardWriteCommand bCommand)  {
+
+		return sqlSession.selectOne("BoardMapper.getBoardReRef", bCommand);
+	}
+	public BoardDTO boardReplyInfo(BoardWriteCommand bCommand) {
+		// TODO Auto-generated method stub
+		
+		return sqlSession.selectOne("BoardMapper.replyInfo", bCommand);
+	}
+
+	public int updateBoardReSeq(BoardWriteCommand bCommand) {
+		// TODO Auto-generated method stub
+		return sqlSession.update("BoardMapper.updateReSeq", bCommand);
+	}*/
+
+	public List<BoardDTO> downList() {
+		// TODO Auto-generated method stub
+		return sqlSession.selectList("BoardMapper.downList");
+	}
+
 
 	
 	

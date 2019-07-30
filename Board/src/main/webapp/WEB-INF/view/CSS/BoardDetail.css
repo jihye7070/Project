@@ -4,7 +4,7 @@
 }
 .list_wrap{
     background: none #fbfbfb;
-    width: 900px;
+    width: 1200px;
 }
 #list{
 	list-style: none;
@@ -14,7 +14,6 @@
 #list li{
 	display: inline-block;
     position: relative;
-    font-size: 15px;
 	padding: 10px 0 10px;
 }
 #title{
@@ -23,7 +22,7 @@
     margin-left: 20px;
 }
 #title_detail{
-	width: 400px;
+	width: 600px;
 	
 }
 #date{
@@ -31,14 +30,14 @@
     font-weight: bold;
 }
 #date_detail{
-	width: 100px;
+	width: 70px;
 }
 #name{
 	width: 50px;
     font-weight: bold;
 }
 #name_detail{
-	width: 150px;
+	width: 200px;
 }
 .content_wrap{
 	width:900px;

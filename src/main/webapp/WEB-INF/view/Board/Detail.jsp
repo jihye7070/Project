@@ -14,8 +14,7 @@
 <head>
 <meta>
 
-<link href="${pageContext.request.contextPath }/CSS/BoardDetail.css"
-	rel="stylesheet" type="text/css">
+<link href="${pageContext.request.contextPath }/CSS/BoardDetail.css" rel="stylesheet" type="text/css">
 <title>상세 게시글</title>
 <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 
@@ -52,28 +51,15 @@ function back(){
 			<ul id="list">
 				<li id="title">제목</li>
 				<li id="title_detail">
-					<c:choose>
-						<c:when test="${fn:length(board.boardSubject)>24 }">
-							<pre><c:out value="${fn:substring(board.boardSubject,0,23) }" />....</pre>
-							</c:when>
-						<c:otherwise>
-							<pre><c:out value="${board.boardSubject }" /></pre>
-						</c:otherwise>
-					</c:choose></li>
+					<pre><c:out value="${board.boardSubject }" /></pre>
+					</li>
 				<input type="hidden" name="boardNum" value="${board.boardNum }">
 				<input type="hidden" name="boardPass" value="${board.boardPass }">
 				<li id="date">작성일</li>
 				<li id="date_detail"><fmt:formatDate pattern="yy/MM/dd" value="<%=board.getBoardDate()%>" /></li>
 				<li id="name">작성자</li>
 				<li id="name_detail">
-				<c:choose>
-						<c:when test="${fn:length(board.boardName)>14	 }">
-							<pre><c:out value="${fn:substring(board.boardName,0,13) }" />....</pre>
-							</c:when>
-						<c:otherwise>
-							<pre><c:out value="${board.boardName }" /></pre>
-						</c:otherwise>
-				</c:choose>
+					<pre><c:out value="${board.boardName }" /></pre>
 				</li>
 			</ul>
 		</div>
@@ -86,6 +72,7 @@ function back(){
 				<li><input type="button" class="btn" onclick="location.href='BoardUpdate?num=${board.boardNum }'" value="수정"></li>
 				<li><input type="button" class="btn"  onclick="location.href='BoardList'" value="목록"></li>
 				<li><input type="button" class="btn"  onclick="del(${board.boardNum })" value="삭제"></li>
+<%-- 				<li><input type="button" class="btn" onclick="location.href='BoardReplyForm?num=${board.boardNum }'" value="답글"></li> --%>
 			</ul>
 			<div style="color: red;">${message }</div>
 		</div>

@@ -26,9 +26,7 @@
 	width:80px;
 	height: 38px;
 }
-p{
-	font-size: 13px;
-}
+
 .wrap_list{
 	width: 900px;
 	margin: 0 auto;
@@ -47,6 +45,7 @@ p{
 	padding: 10px 0 10px;
 	border-top : 1px;
     background: #f8f8f8;
+    table-layout:fixed;
 }
 #num{
 	width: 80px;
@@ -65,23 +64,40 @@ p{
 	width: 900px;
 	margin: 0 auto;
 }
+table{
+	table-layout: fixed;
+	
+}
+table tr{
+	height:50px;
+}
 #t_num{
 	width: 80px;
-	text-align: center;
+	text-align: center; 
+	    display: inline-block;
 }
 #t_title{
+	    display: inline-block;
 	width: 470px;
-	padding-left: 30px;
-	font-size: 15px;
+	padding-left: 10px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    
+    margin-right: 10px;
 }
 #t_name{
+	    display: inline-block;
 	width: 150px;
 	padding-left: 20px;
-    font-size: 15px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 #t_date{
 	width: 150px;
 	text-align: center;
+	display: inline-block;
 }
 .wirte{
 	width : 900px;

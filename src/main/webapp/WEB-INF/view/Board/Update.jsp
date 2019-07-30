@@ -75,6 +75,8 @@ function keyup(obj, maxByte) {
         str2 = strValue.substr(0, len);
         obj.value = str2;
     }
+    var title = $('#boardTitle').val().replace(/^\s+$/g,'');
+    $('#boardTitle').val(title);
 }
 
 </script>
@@ -93,14 +95,9 @@ function keyup(obj, maxByte) {
 			
 				
 					<li id="name">이 름</li>
-					<li id="name_detail" ><c:choose>
-							<c:when test="${fn:length(board.boardName)>6	 }">
-						<pre><c:out value="${fn:substring(board.boardName,0,5) }"  escapeXml="true" />.......</pre>
-							</c:when>
-							<c:otherwise>
-						<pre><c:out value="${board.boardName }" escapeXml="true" /></pre>
-							</c:otherwise>
-						</c:choose></li>
+					<li id="name_detail" >
+						<c:out value="${board.boardName }" escapeXml="true" />
+						</li>
 				</ul>
 			</div>
 			<div class="content_wrap">

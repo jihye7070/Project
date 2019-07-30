@@ -60,6 +60,11 @@
 	        return false; // false를 리턴합니다.
 	    }
     }
+    function keyup() { 
+    	var title = $('#keyword').val().replace(/^\s+$/g,'');
+    	    $('#keyword').val(title);
+    }
+   	 
 /*       function replace(inum) { // 정규식을 이용한 문자 변경 
     	inum = inum.replace(/&/g, ""); 
     	inum = inum.replace(/\+/g, ""); 
@@ -86,7 +91,7 @@
 				<option value="content">글내용</option>
 				<option value="ticon">제목+내용</option>
 				<option value="name">작성자</option>
-			</select> <input type="text" id="keyword" name="keyword"  >
+			</select> <input type="text" id="keyword" name="keyword"   onkeyup="keyup()" >
 			<button id="btnSearch" name="btnSearch"  onclick="search();" >검색</button>
 			<button id="btnReset" name="btnReset"
 				onclick="location.href='BoardList'">초기화</button>
@@ -113,26 +118,13 @@
 			<table>
 				<tr>
 					<td id="t_num">${list.rowNum }</td>
-					<td id="t_title"><a
-						href="BoardDetail?num=${list.boardNum}">
-						<c:choose>
-							<c:when test="${fn:length(list.boardSubject)>25 }">
-							<pre><c:out value="${fn:substring(list.boardSubject,0,24) }"  escapeXml="true" />.......</pre>
-							</c:when>
-							<c:otherwise>
-								<pre><c:out value="${list.boardSubject }"  escapeXml="true" /></pre>
-							</c:otherwise>
-						</c:choose>
+					<td id="t_title"><a href="BoardDetail?num=${list.boardNum}">
+					<c:out value="${list.boardSubject }"  escapeXml="true" />
 							</a></td>
 					<td id="t_name">
-					<c:choose>
-							<c:when test="${fn:length(list.boardName)>11	 }">
-							<pre><c:out value="${fn:substring(list.boardName,0,10) }"  escapeXml="true" />.......</pre>
-							</c:when>
-							<c:otherwise>
-								<pre><c:out value="${list.boardName }" escapeXml="true"  /></pre>
-							</c:otherwise>
-						</c:choose></td>
+				
+								<c:out value="${list.boardName }" escapeXml="true"  />
+							</td>
 					<td id="t_date" colspan="2"><fmt:formatDate
 							pattern="yy/MM/dd HH:mm" value="${list.boardDate}" /></td>
 				</tr>
@@ -145,6 +137,8 @@
 		<div class="wirte">
 			<input type="button" class="btn" onclick="location.href='BoardWriteForm'" value="글 작성">
 			<input type="button" class="btn" onclick="location.href='BoardList'" value="글 목록">
+			<input type="button" class="btn" onclick="location.href='ExcelDownload'" value="글 다운로드">
+			
 		</div>
 
 		<div id="paging" style="text-align: center">
